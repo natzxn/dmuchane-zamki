@@ -21,7 +21,7 @@ const Prices: React.FC = () => {
             <figure className="mt-2 mb-6">
               <img className="castle-1" src={castleImage} alt="castle" />
             </figure>
-            <h5 className="castle-type text-center mb-7">Nadmuchiwany zamek do<br/> skakania ze zjeżdżalnią</h5>
+            <h5 className="castle-type text-center mb-7">Nadmuchiwany zamek do skakania ze zjeżdżalnią</h5>
             <ul className="size-info text-center mb-8">
               <li>Wymiary</li>
               <li>szerokość: 350 cm</li>
