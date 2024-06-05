@@ -1,0 +1,524 @@
+
+.heading {
+    font-family: "Playpen Sans", cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0183C7;
+    text-shadow: 0px 0px 4px #00000033;
+}
+
+@media (max-width: 640px) {
+  .heading {
+   font-size: 2.3rem;
+  }
+}
+
+.text1 {
+    width: 35rem;
+    font-size: 1.15rem;
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .text1 {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text1 {
+    width: 54rem;
+  }
+}
+
+@media (max-width: 970px) {
+  .text1 {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .text1 {
+    width: 34rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .text1 {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 630px) {
+  .text1 {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 475px) {
+  .text1 {
+    width: 20rem;
+  }
+}
+
+
+
+.check-castle {
+  background-color: #28D2FF;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.bubbles-box {
+    position: relative;
+    width: 34rem; 
+    height: 21rem; 
+  }
+
+.bubble {
+    position: absolute;
+    background-size: cover;
+    border-radius: 50%;
+    background: linear-gradient(153.92deg, #FFFFFF -2.31%, #BCEAF6 83.57%);
+    animation: bubbleMovement 3s infinite;
+  }
+
+  @media (max-width: 1024px) {
+    .bubble {
+    display: none;
+    }
+  }
+
+  .small {
+    width: 13rem;
+    height: 13rem; 
+    animation: smallBubbleMovement 3s infinite;
+  }
+
+  @media (max-width: 1280px) {
+    .small {
+      width: 11vw;
+      height: 11vw; 
+    }
+  }
+  
+  .large {
+    width: 24rem; 
+    height: 24rem; 
+  }
+
+  @media (max-width: 1280px) {
+    .large {
+      width: 19vw;
+      height: 19vw; 
+    }
+  }
+  
+  .bubble:nth-child(1) {
+    top: 86%;
+    right: 63%;
+    animation: bubbleScale1 4s infinite;
+  }
+
+  @media (max-width: 1536px) {
+    .bubble:nth-child(1) {
+      right: 70%;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .bubble:nth-child(1) {
+      top: 68%;
+      right: 61%;
+    }
+  }
+  
+  .bubble:nth-child(2) {
+    top: 0%;
+    right: 20%;
+    z-index: 10;
+    animation: bubbleScale2 4s infinite;
+  }
+
+  @media (max-width: 1536px) {
+    .bubble:nth-child(2) {
+      right: 32%;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .bubble:nth-child(2) {
+      right: 29%;
+    }
+  }
+
+  
+  .bubble:nth-child(3) {
+    top: 44%;
+    left: 23%;
+    z-index: 20;
+    animation: bubbleScale3 5s infinite;
+  }
+
+  @media (max-width: 1536px) {
+    .bubble:nth-child(3) {
+      left: 11%;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .bubble:nth-child(3) {
+      left: 30%;
+    }
+  }
+
+
+  .bubble:nth-child(4) {
+    top: 5%;
+    left: 57%;
+    animation: bubbleScale4 5s infinite;
+  }
+
+
+  @media (max-width: 1536px) {
+    .bubble:nth-child(4) {
+      left: 45%;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .bubble:nth-child(4) {
+      left: 63%;
+      top: 15%;
+    }
+  }
+
+
+  .image-overlay {
+    position: absolute;
+    top: 15%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    height: 22.5rem;
+    background-image: url('../assets/castle1.png');
+    background-size: cover;
+    z-index: 100;
+    transform: scaleX(-1);
+  }
+
+  @media (max-width: 1536px) {
+    .image-overlay {
+      right: 17%;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .image-overlay {
+      width: 16rem;
+      height:17rem;
+      left: 20%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .image-overlay {
+    display: none;
+    }
+  }
+
+  @keyframes bubbleScale1 {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1); 
+    }
+    100% {
+      transform: scale(1); 
+  }
+}
+
+  @keyframes bubbleScale2 {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1); 
+    }
+    100% {
+      transform: scale(1); 
+  }
+}
+
+@keyframes bubbleScale3 {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1); 
+    }
+    100% {
+      transform: scale(1); 
+  }
+}
+
+@keyframes bubbleScale4 {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1); 
+    }
+    100% {
+      transform: scale(1); 
+  }
+}
+
+/* SECOND SECTION */
+
+.text2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.15rem;
+  width: 36rem;
+}
+
+@media (min-width: 1920px) {
+  .text2 {
+    width:42rem;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .text2 {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .text2 {
+    width: 27rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text2 {
+    width: 48rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .text2 {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .text2 {
+    width: 34rem;
+  }
+}
+
+@media (max-width: 630px) {
+  .text2 {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 475px) {
+  .text2 {
+    width: 20rem;
+  }
+}
+
+.text2 li span {
+  display: inline-block;
+  text-align: right; 
+  font-weight: bold; 
+  font-size: 3rem;
+}
+
+.check-rental {
+  background-color: #FFE54C;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.bubbles-box2 {
+  position: relative;
+  width: 34rem; 
+  height: 21rem; 
+}
+
+@media (max-width: 1024px) {
+  .bubbles-box2 {
+    display: none;
+  }
+}
+
+.small2 {
+  width: 13rem;
+  height: 13rem; 
+  animation: smallBubbleMovement 3s infinite;
+}
+
+@media (max-width: 1280px) {
+  .small2 {
+    width: 11vw;
+    height: 11vw; 
+  }
+}
+
+.large2 {
+  width: 24rem; 
+  height: 24rem; 
+}
+
+@media (max-width: 1280px) {
+  .large2 {
+    width: 21vw;
+    height: 21vw; 
+  }
+}
+
+
+.large3 {
+  width: 17rem; 
+  height: 18rem; 
+}
+
+@media (max-width: 1280px) {
+  .large3 {
+    width: 18vw;
+    height: 18vw; 
+  }
+}
+
+.bubble2:nth-child(1) {
+  top: 88%;
+  right: 65%;
+  animation: bubbleScale1 4s infinite;
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .bubble2:nth-child(1) {
+    left: 0%; 
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .bubble2:nth-child(1) {
+    left: 2%;
+    top: 77%;
+  }
+}
+
+
+.bubble2:nth-child(2) {
+  top: 15%;
+  right: 20%;
+  z-index: 10;
+  animation: bubbleScale2 4s infinite;
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .bubble2:nth-child(2) {
+    left: 9%; 
+  }
+}
+
+@media (max-width: 1279px) {
+  .bubble2:nth-child(2) {
+    left: 14%; 
+  }
+}
+
+
+.bubble2:nth-child(3) {
+  top: 89%;
+  left: 32%;
+  z-index: 20;
+  animation: bubbleScale3 5s infinite;
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .bubble2:nth-child(3) {
+    left: 34%; 
+  }
+}
+
+@media (max-width: 1280px) {
+  .bubble2:nth-child(3) {
+    left: 29%;
+    top: 75%;
+  }
+}
+
+
+.bubble2:nth-child(4) {
+  top: 70%;
+  left: 63%;
+  animation: bubbleScale4 5s infinite;
+}
+
+@media (min-width: 1281px) and (max-width: 1535px) {
+  .bubble2:nth-child(4) {
+    left: 65%; 
+  }
+}
+
+@media (max-width: 1280px) {
+  .bubble2:nth-child(4) {
+      left: 67%;
+      top: 67%;
+  }
+}
+
+
+.image-overlay2 {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+  height: 22.5rem;
+  background-image: url('../assets/castle2.png');
+  background-size: cover;
+  z-index: 100;
+  transform: scaleX(-1);
+}
+
+@media (min-width: 1920px) {
+  .image-overlay2 {
+    right: 9%;
+  }
+}
+
+@media (min-width: 1536px) and (max-width: 1919px) {
+  .image-overlay2 {
+    right: 9%; /* Pozycja dla szerokości ekranu od 1536px do 1919px */
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .image-overlay2 {
+    left: 2%; 
+  }
+}
+
+@media (max-width: 1280px) {
+  .image-overlay2 {
+    width: 24rem;
+    height: 18rem;
+    left: 2%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .image-overlay2 {
+  display: none;
+  }
+}
