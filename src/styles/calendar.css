@@ -1,0 +1,30 @@
+.calendar-container {
+    position: relative;
+    width: 20.8rem;
+  }
+  
+  .calendar-disabled .rdrCalendarWrapper {
+    pointer-events: none;
+    opacity: 0.5;
+    
+  }
+  
+  .calendar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: #E5E5E5B2;
+  }
+  
+  .calendar-overlay span {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+  }
+  
