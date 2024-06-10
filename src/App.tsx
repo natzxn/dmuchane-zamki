@@ -24,7 +24,7 @@ const App: React.FC = () => {
               <div className="logo">
                 <img src={Logo} alt="Logo" className="h-13" />
               </div>
-              <nav className="navigation hidden lg:flex"> {/* Ukryj na ekranach mniejszych niż large (lg) */}
+              <nav className="navigation hidden lg:flex"> 
                 <ul className="flex">
                   <li><NavLink to="/" className={({ isActive }) => `path mx-5 ${isActive ? 'active' : ''}`} end>O nas</NavLink></li>
                   <li><NavLink to="/prices" className={({ isActive }) => `path mx-5 ${isActive ? 'active' : ''}`}>Cennik</NavLink></li>
@@ -32,14 +32,14 @@ const App: React.FC = () => {
                   <li><NavLink to="/rental" className={({ isActive }) => `path mx-5 ${isActive ? 'active' : ''}`}>Warunki wynajmu</NavLink></li>
                 </ul>
               </nav>
-              <button className="block lg:hidden" onClick={toggleMobileMenu}> {/* Pokaż na ekranach mniejszych niż large (lg) */}
+              <button className="block lg:hidden" onClick={toggleMobileMenu}> 
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
             </div>
           </nav>
-          <nav className={`lg:flex lg:items-center ${isMobileMenuOpen ? 'show' : 'hide'} nav-container`}> {/* Pokaż na ekranach mniejszych niż large (lg) */}
+          <nav className={`lg:flex lg:items-center ${isMobileMenuOpen ? 'show' : 'hide'} nav-container`}> 
             <ul className="flex flex-col items-end mx-10">
               <li><NavLink to="/" className="path my-2" onClick={toggleMobileMenu} end>O nas</NavLink></li>
               <li><NavLink to="/prices" className="path my-2" onClick={toggleMobileMenu}>Cennik</NavLink></li>
