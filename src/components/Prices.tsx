@@ -10,11 +10,11 @@ const Prices: React.FC = () => {
 
   return (
     <>
-      <section className="flex justify-center my-8">
-        <div className="title">
+      <header className="flex justify-center my-8">
+        <div className="heading-prices">
           <h1 className="mb-10">Cennik</h1>
         </div>
-      </section>
+      </header>
       <section className="prices flex justify-center mx-14">
         <div className="price-cards flex gap-16 mb-18 xl:mb-20 3xl:mb-24">
           <div className="card flex flex-col items-center justify-center">

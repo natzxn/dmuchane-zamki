@@ -17,9 +17,9 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="border min-h-screen flex flex-col">
+      <main className="border min-h-screen flex flex-col">
         <div className='app flex flex-col flex-grow rounded-3xl'>
-          <header className='mx-7 mt-3 xs:mx-4'>
+          <nav className='mx-7 mt-3 xs:mx-4'>
             <div className="flex justify-between items-center px-4 py-2">
               <div className="logo">
                 <img src={Logo} alt="Logo" className="h-13" />
@@ -38,7 +38,7 @@ const App: React.FC = () => {
                 </svg>
               </button>
             </div>
-          </header>
+          </nav>
           <nav className={`lg:flex lg:items-center ${isMobileMenuOpen ? 'show' : 'hide'} nav-container`}> {/* Pokaż na ekranach mniejszych niż large (lg) */}
             <ul className="flex flex-col items-end mx-10">
               <li><NavLink to="/" className="path my-2" onClick={toggleMobileMenu} end>O nas</NavLink></li>
@@ -47,17 +47,17 @@ const App: React.FC = () => {
               <li><NavLink to="/rental" className="path my-2" onClick={toggleMobileMenu}>Warunki wynajmu</NavLink></li>
             </ul>
           </nav>
-          <main className="flex-grow">
+          <article className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/prices" element={<Prices />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/rental" element={<Rental />} />
             </Routes>
-          </main>
+          </article>
           <FooterWrapper />
         </div>
-      </div>
+      </main>
     </Router>
   );
 }
