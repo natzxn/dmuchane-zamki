@@ -3,8 +3,8 @@ import '../styles/rental.css'
 
 const Rental: React.FC = () => {
   return (
-    <section className='rental mt-12 mx-14 xs:mx-8 max-w-7xl'>
-      <h1 className='title mb-5'>Warunki Wynajmu</h1>
+    <section className='rental mt-12 lg:mx-14 xs:mx-8 max-w-7xl'>
+      <h1 className='heading-rental mb-8'>Warunki Wynajmu</h1>
       <div className='description my-7'>
         <h4 className='description-title mb-3'>Teren</h4>
         <ul className='conditions'>
