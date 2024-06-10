@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DateRange, RangeKeyDict, Range } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-import '../styles/calendar.css';
+import '../../styles/calendar.css';
 
 interface DateRangeSelectorProps {
   onDateChange: (ranges: { startDate: Date | null, endDate: Date | null }) => void; // Zmieniłem typy startDate i endDate na Date | null
