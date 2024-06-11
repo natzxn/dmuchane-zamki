@@ -3,17 +3,17 @@ import '../styles/reservation.css';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Input, Select } from "antd";
-import DateRangeSelector from './Form/Calendar';
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
 import { Checkbox } from 'antd';
 import type { CheckboxProps } from 'antd';
 
+import DateRangeSelector from './Form/Calendar';
 import CastleImage from './Form/CastleImage';
+import CastleSelect, { CastleOption } from './Form/CastleSelect';
+import DeliveryOption from './Form/Delivery';
 
 const { Option } = Select;
-
-type CastleOption = 'first-option' | 'second-option' | 'third-option';
 
 export const Reservation = () => {
   const [selectedCastle, setSelectedCastle] = useState<CastleOption | null>(null);
@@ -25,13 +25,14 @@ export const Reservation = () => {
     delivery: Yup.string().required('Rodzaj dostawy jest wymagany'),
     payment: Yup.string().required('Rodzaj płatności jest wymagany'),
     checkbox: Yup.boolean().oneOf([true], 'Musisz wyrazić zgodę'),
+    city: Yup.string().required('Miejscowość jest wymagana przy dostawie do domu'),
   });
 
   const onSubmit = (values: any) => {
     console.log('Wartości formularza:', values);
   };
 
-  const handleDateChange = (ranges: { startDate: Date | null, endDate: Date | null }, setFieldValue: (field: string, value: any) => void) => {
+  const updateDate = (ranges: { startDate: Date | null, endDate: Date | null }, setFieldValue: (field: string, value: any) => void) => {
     setFieldValue('startDate', ranges.startDate);
     setFieldValue('endDate', ranges.endDate);
   };
@@ -39,10 +40,6 @@ export const Reservation = () => {
 
   const onChange: CheckboxProps['onChange'] = (e) => {
     console.log(`checked = ${e.target.checked}`);
-  };
-
-  const handleCastleChange = (value: CastleOption) => {
-    setSelectedCastle(value);
   };
 
 
@@ -90,7 +87,7 @@ export const Reservation = () => {
                 </div>
                 <div className="form-group mb-4">
                   <Input
-                    type="text"
+                    type="number"
                     name="phoneNumber"
                     className="phone-number"
                     placeholder="Numer telefonu"
@@ -105,26 +102,13 @@ export const Reservation = () => {
                   />
                 </div>
                 <div className="form-group mb-4">
-                  <Select
-                    className="castle-option"
-                    placeholder="Wybierz rodzaj dmuchanej atrakcji"
-                    value={values.castle || undefined}
+                  <CastleSelect
+                    selectedCastle={selectedCastle}
                     onChange={(value) => {
+                      setSelectedCastle(value);
                       setFieldValue("castle", value);
-                      handleCastleChange(value as CastleOption);
                     }}
-                    onBlur={handleBlur}
-                  >
-                    <Option value="first-option">
-                      Nadmuchiwany zamek do skakania ze zjeżdżalnią
-                    </Option>
-                    <Option value="second-option">
-                      Nadmuchiwany plac zabaw park wodny
-                    </Option>
-                    <Option value="third-option">
-                      Wodny dmuchany zamek ze zjeżdżalnią
-                    </Option>
-                  </Select>
+                  />
                   <ErrorMessage
                     name="castle"
                     component="div"
@@ -135,32 +119,29 @@ export const Reservation = () => {
                   <h4 className="choose-day mb-4">
                     Wybierz dzień dostawy i odbioru:
                   </h4>
-                  <div className='flex'>
-                  <DateRangeSelector
-                    onDateChange={(ranges) => handleDateChange(ranges, setFieldValue)}
-                    disabled={!values.castle}
-                  />
-                  <h5 className='ml-8 max-w-44 my-20 text-sm'>
-                    Dni zaznaczone na szaro (te których nie da sie wybrać)
-                    oznaczają że dana atrakcja w tym terminie jest nie dostępna.
-                    <br/><br/>Możesz spróbować wybrać innego dmuchańca i sprawdzić
-                    dostępność w kalendarzu.
-                  </h5>
+                  <div className="flex">
+                    <DateRangeSelector
+                      onDateChange={(ranges) =>
+                        updateDate(ranges, setFieldValue)
+                      }
+                      disabled={!selectedCastle}
+                    />
+                    <h5 className="ml-8 max-w-44 my-20 text-sm">
+                      Dni zaznaczone na szaro (te których nie da sie wybrać)
+                      oznaczają że dana atrakcja w tym terminie jest nie
+                      dostępna.
+                      <br />
+                      <br />
+                      Możesz spróbować wybrać innego dmuchańca i sprawdzić
+                      dostępność w kalendarzu.
+                    </h5>
                   </div>
                 </div>
-                <div className="form-group mb-4">
-                  <Select
-                    className="delivery-option"
-                    placeholder="Wybierz rodzaj dostawy"
+                <div className="form-group">
+                  <DeliveryOption
                     value={values.delivery || undefined}
-                    onChange={(value) => {
-                      setFieldValue("delivery", value);
-                    }}
-                    onBlur={handleBlur}
-                  >
-                    <Option value="personal-collect">Odbiór osobisty</Option>
-                    <Option value="home-delivery">Dostawa na wybrany adres</Option>
-                  </Select>
+                    onChange={(value) => setFieldValue("delivery", value)}
+                  />
                   <ErrorMessage
                     name="delivery"
                     component="div"
@@ -215,11 +196,11 @@ export const Reservation = () => {
             )}
           </Formik>
         </div>
-        <div className="bubbles-container max-w-xs mr-10 mt-14">
+        <div className="bubbles-container max-w-lg mr-10 mt-14">
           <figure className="bubbles-images mb-28">
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
-            <CastleImage selectedCastle={selectedCastle}/>
+            <CastleImage selectedCastle={selectedCastle} />
           </figure>
           <figure className="bubbles-images">
             <div className="cup cup2 smaller2"></div>
@@ -227,8 +208,11 @@ export const Reservation = () => {
           </figure>
         </div>
       </div>
-      <aside className='mt-8 mb-6 lg:mx-14 xl:mx-16'>
-        <p className='text-cyan-700'>Lorem ipsum dolor sit amet consectetur. Pretium eget aliquam praesent vitae mauris pulvinar quam ultricies.</p>
+      <aside className="mt-8 mb-6 lg:mx-14 xl:mx-16">
+        <p className="text-cyan-700">
+          Lorem ipsum dolor sit amet consectetur. Pretium eget aliquam praesent
+          vitae mauris pulvinar quam ultricies.
+        </p>
       </aside>
     </section>
   );
