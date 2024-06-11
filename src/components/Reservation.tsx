@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/reservation.css';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Input, Select } from "antd";
 import DateRangeSelector from './Form/Calendar';
@@ -9,9 +9,7 @@ import 'react-date-range/dist/theme/default.css';
 import { Checkbox } from 'antd';
 import type { CheckboxProps } from 'antd';
 
-import FirstCastle from '../assets/castle3.png'
-import SecondCastle from '../assets/castle2.png'
-import ThirdCastle from '../assets/castle4.png'
+import CastleImage from './Form/CastleImage';
 
 const { Option } = Select;
 
@@ -47,18 +45,6 @@ export const Reservation = () => {
     setSelectedCastle(value);
   };
 
-  const renderCastleImage = () => {
-    switch (selectedCastle) {
-      case "first-option":
-        return <img src={FirstCastle} alt="First Castle" />;
-      case "second-option":
-        return <img src={SecondCastle} alt="Second Castle" />;
-      case "third-option":
-        return <img src={ThirdCastle} alt="Third Castle" />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <section className="reservation">
@@ -233,7 +219,7 @@ export const Reservation = () => {
           <figure className="bubbles-images mb-28">
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
-            <div className="chosen-castle">{renderCastleImage()}</div>
+            <CastleImage selectedCastle={selectedCastle}/>
           </figure>
           <figure className="bubbles-images">
             <div className="cup cup2 smaller2"></div>

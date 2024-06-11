@@ -13,7 +13,7 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({ onDateChange, dis
   const [state, setState] = useState<Range[]>([
     {
       startDate: new Date(),
-      endDate: new Date, 
+      endDate: new Date(), 
       key: 'selection'
     }
   ]);
