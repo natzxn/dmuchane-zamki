@@ -5,16 +5,15 @@ import 'react-date-range/dist/theme/default.css';
 import '../../styles/calendar.css';
 
 interface DateRangeSelectorProps {
-  onDateChange: (ranges: { startDate: Date | null, endDate: Date | null }) => void; // Zmieniłem typy startDate i endDate na Date | null
+  onDateChange: (ranges: { startDate: Date | null, endDate: Date | null }) => void; 
   disabled: boolean;
 }
 
 const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({ onDateChange, disabled }) => {
-  const [isActive, setIsActive] = useState(false);
   const [state, setState] = useState<Range[]>([
     {
-      startDate: new Date(), // Ustawiamy początkowo startDate na null
-      endDate: new Date, // Ustawiamy początkowo endDate na null
+      startDate: new Date(),
+      endDate: new Date, 
       key: 'selection'
     }
   ]);
