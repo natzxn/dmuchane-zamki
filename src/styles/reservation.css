@@ -47,6 +47,18 @@
     height: 21rem; 
   }
 
+  @media (max-width: 1400px) {
+    .bubbles-images {
+      width: 30rem;
+    }
+  }
+
+  @media (max-width: 1340px) {
+    .bubbles-images {
+      width: 27rem;
+    }
+  }
+
 .cup{
     position: absolute;
     background-size: cover;
@@ -76,27 +88,27 @@
   
   .cup1:nth-child(1) {
     top: 59%;
-    right: 4%;
+    right: 15%;
     z-index: 100;
   }
 
   
   .cup1:nth-child(2) {
     top: 0%;
-    right: 20%;
+    right: 30%;
     z-index: 10;
   }
 
   .cup2:nth-child(1) {
     top: 54%;
-    right: 33%;
+    right: 40%;
     z-index: 100;
   }
 
   
   .cup2:nth-child(2) {
     top: 21%;
-    right: 11%;
+    right: 20%;
     z-index: 10;
   }
   
@@ -109,3 +121,31 @@
   font-weight: 700;
 }
 
+.error-message {
+  color: red;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1350px) {
+  .checkbox-wrapper p {
+    text-wrap:wrap;
+    max-width: 40rem;
+  }
+}
+
+.ant-checkbox.ant-checkbox-error .ant-checkbox-inner {
+  border-color: red;
+}
+
+.chosen-castle {
+  position: absolute;
+  top: 41%;
+  left: 42%;
+  width: 42%;
+  transform: translate(-50%, -50%) scaleX(-1);
+  z-index: 101;
+}
