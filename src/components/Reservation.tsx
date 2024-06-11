@@ -137,7 +137,7 @@ export const Reservation = () => {
                     </h5>
                   </div>
                 </div>
-                <div className="form-group">
+                <div className="form-group mb-4">
                   <DeliveryOption
                     value={values.delivery || undefined}
                     onChange={(value) => setFieldValue("delivery", value)}

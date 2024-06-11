@@ -22,7 +22,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
       return (
         <>
           <Select
-            className="delivery-option mb-4"
+            className="delivery-option"
             placeholder="Wybierz rodzaj dostawy"
             value={value}
             onChange={handleDeliveryChange}
@@ -32,7 +32,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
           </Select>
           {showAddressFields && (
             <>
-              <div className="adress-inputs mb-4">
+              <div className="adress-inputs mt-4 mb-4">
                 <Input
                     type="text"
                   placeholder="Miejscowość"
