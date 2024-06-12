@@ -189,7 +189,7 @@ export const Reservation = () => {
             )}
           </Formik>
         </div>
-        <div className="bubbles-container max-w-lg mr-10 mt-14">
+        <div className="bubbles-container max-w-lg mr-10 mt-14 2xl:ml-12 2xxl:ml-32">
           <figure className="bubbles-images mb-28">
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
