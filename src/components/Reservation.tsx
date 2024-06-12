@@ -34,7 +34,7 @@ export const Reservation = () => {
   return (
     <section className="reservation">
       <div className="container mt-10 max-w-7xl flex">
-        <div className="form-container mx-14">
+        <div className="form-container xl:ml-14 xl:mr-24 lg:mr-20 lg:ml-10 sm:mx-10 xs:mx-4">
           <h1 className="heading-reservation mb-5">Rezerwacja</h1>
           <Formik
             initialValues={{
@@ -113,14 +113,14 @@ export const Reservation = () => {
                   <h4 className="choose-day mb-4">
                     Wybierz dzień dostawy i odbioru:
                   </h4>
-                  <div className="flex">
+                  <div className="date-selector flex">
                     <DateRangeSelector
                       onDateChange={(ranges) =>
                         updateDate(ranges, setFieldValue)
                       }
                       disabled={!selectedCastle}
                     />
-                    <h5 className="ml-8 max-w-44 my-20 text-sm">
+                    <h5 className="sm:ml-8 max-w-44 sm:my-20 text-sm xs:mb-5 xs:mt-1 xs:ml-2">
                       Dni zaznaczone na szaro (te których nie da sie wybrać)
                       oznaczają że dana atrakcja w tym terminie jest nie
                       dostępna.
@@ -189,7 +189,7 @@ export const Reservation = () => {
             )}
           </Formik>
         </div>
-        <div className="bubbles-container max-w-lg mr-10 mt-14 2xl:ml-12 2xxl:ml-32">
+        <div className="bubbles-container max-w-lg mt-14 2xl:ml-12 2xxl:ml-32">
           <figure className="bubbles-images mb-28">
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
@@ -201,7 +201,7 @@ export const Reservation = () => {
           </figure>
         </div>
       </div>
-      <aside className="mt-8 mb-6 lg:mx-14 xl:mx-16">
+      <aside className="mt-8 mb-6 lg:mx-14 xl:mx-16 xs:mx-10">
         <p className="text-cyan-700">
           Lorem ipsum dolor sit amet consectetur. Pretium eget aliquam praesent
           vitae mauris pulvinar quam ultricies.

@@ -34,12 +34,12 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
           </Select>
           {showAddressFields && (
             <>
-              <div className="adress-inputs flex mt-4 mb-4">
+              <div className="adress-inputs flex mt-4 mb-4 sm:flex-row xs:flex-col">
                 <div className="form-group">
                   <Input
                     type="text"
                     placeholder="Miejscowość"
-                    className="address-field mr-8"
+                    className="address-field mr-8 xs:mb-4"
                     name="addressCity"
                     onChange={(e) => {
                       setFieldValue("addressCity", e.target.value); 
@@ -68,12 +68,12 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
                   />
                 </div>
               </div>
-              <div className="adress-inputs flex mb-4">
+              <div className="adress-inputs flex mb-4 sm:flex-row xs:flex-col">
                 <div className="form-group">
                   <Input
                     type="text"
                     placeholder="Numer domu/lokalu"
-                    className="address-field mr-8"
+                    className="address-field mr-8 xs:mb-4"
                     name="addressHomeNumber"
                     onChange={(e) => {
                       setFieldValue('addressHomeNumber', e.target.value); 
@@ -103,8 +103,8 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
                   />
                 </div>
               </div>
-              <div className="time-pickers flex mb-4">
-                <div className="time-field mr-8">
+              <div className="time-pickers flex mb-4 sm:flex-row xs:flex-col">
+                <div className="time-field mr-8 xs:mb-4">
                   <h5 className="mb-1">Preferowana godzina dostawy:</h5>
                   <TimePicker
                     defaultValue={null}
