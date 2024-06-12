@@ -17,12 +17,62 @@
     font-weight: 600;
 }
 
+@media (max-width: 1024px) {
+  .name, .phone-number {
+    width: 52rem;
+  }
+}
+
+@media (max-width: 975px) {
+  .name, .phone-number {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .name, .phone-number {
+    width: 32rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .name, .phone-number {
+    width: 21rem;
+  }
+}
+
+
 .castle-option, .delivery-option, .payment-option {
     width: 40rem;
     height: 2.5rem;
     border-radius: 0;
     border: 1px solid #D9D9D9;
 }
+
+@media (max-width: 1024px) {
+  .castle-option, .delivery-option, .payment-option {
+    width: 52rem;
+  }
+}
+
+@media (max-width: 975px) {
+  .castle-option, .delivery-option, .payment-option {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .castle-option, .delivery-option, .payment-option {
+    width: 32rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .castle-option, .delivery-option, .payment-option {
+    width: 21rem;
+  }
+}
+
 
 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
     color : #bfbfbf;
@@ -43,19 +93,37 @@
 
 .bubbles-images {
     position: relative;
-    width: 34rem; 
+    width: 30.5rem; 
     height: 21rem; 
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1440px) {
     .bubbles-images {
-      width: 30rem;
+      width: 27rem;
     }
   }
 
-  @media (max-width: 1340px) {
+  @media (max-width: 1350px) {
     .bubbles-images {
-      width: 27rem;
+      width: 22.5rem;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .bubbles-images {
+      width: 15rem;
+    }
+  }
+
+  @media (max-width: 1060px) {
+    .bubbles-images {
+      width: 13.5rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .bubbles-images {
+      display: none;
     }
   }
 
@@ -70,39 +138,88 @@
     width: 10rem;
     height: 10rem; 
   }
+
+  @media (max-width: 1200px) {
+    .smaller {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+  }
   
   .larger {
     width: 18.5rem; 
     height: 18.5rem; 
   }
 
+  @media (max-width: 1200px) {
+    .larger {
+      width: 11.5rem;
+      height: 11.5rem;
+    }
+  }
+
   .smaller2 {
     width: 9rem;
     height: 9rem; 
+  }
+
+  @media (max-width: 1200px) {
+    .smaller2 {
+      width: 7rem;
+      height: 7rem;
+    }
   }
   
   .larger2 {
     width: 12rem; 
     height: 12rem; 
   }
+
+  @media (max-width: 1200px) {
+    .larger2 {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
   
   .cup1:nth-child(1) {
     top: 59%;
-    right: 15%;
+    right: 10%;
     z-index: 100;
+  }
+
+  @media (max-width: 1200px) {
+    .cup1:nth-child(1) {
+      top: 41%;
+      right: 18%;
+    }
   }
 
   
   .cup1:nth-child(2) {
     top: 0%;
-    right: 30%;
+    right: 20%;
     z-index: 10;
   }
+
+  @media (max-width: 1200px) {
+    .cup1:nth-child(2) {
+      right: 25%;
+    }
+  }
+
 
   .cup2:nth-child(1) {
     top: 54%;
     right: 40%;
     z-index: 100;
+  }
+
+  @media (max-width: 1200px) {
+    .cup2:nth-child(1) {
+      top: 53%;
+      right: 50%;
+    }
   }
 
   
@@ -111,6 +228,13 @@
     right: 20%;
     z-index: 10;
   }
+
+  @media (max-width: 1200px) {
+    .cup2:nth-child(2) {
+      right: 31%;
+    }
+  }
+
   
 .btn-submit {
   padding: 1rem 3.5rem;
@@ -137,15 +261,59 @@
   }
 }
 
+@media (max-width: 450px) {
+  .checkbox-wrapper p {
+    max-width: 20rem;
+  }
+}
+
 .ant-checkbox.ant-checkbox-error .ant-checkbox-inner {
   border-color: red;
 }
 
 .chosen-castle {
   position: absolute;
-  top: 41%;
-  left: 42%;
-  width: 42%;
-  transform: translate(-50%, -50%) scaleX(-1);
+  /* top: 41%; */
+  /* left: 48%; */
+  width: 13rem;
+  transform: translate(69%, 40%) scaleX(-1);
   z-index: 101;
+}
+
+@media (max-width: 1440px) {
+  .chosen-castle {
+  transform: translate(55%, 45%) scaleX(-1);
+  }
+}
+
+@media (max-width: 1340px) {
+  .chosen-castle {
+  transform: translate(25%, 40%) scaleX(-1);
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .chosen-castle {
+    width: 8rem;
+    transform: translate(85%, 40%) scaleX(-1);
+  }
+}
+
+@media (max-width: 1180px) {
+  .chosen-castle {
+    transform: translate(20%, 40%) scaleX(-1);
+  }
+}
+
+@media (max-width: 1060px) {
+  .chosen-castle {
+    transform: translate(5%, 40%) scaleX(-1);
+  }
+}
+
+@media (max-width: 540px) {
+.date-selector {
+  flex-direction: column-reverse;
+}
 }

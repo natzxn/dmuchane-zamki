@@ -9,10 +9,59 @@
     font-weight: 600;
 }
 
+@media (max-width: 1024px) {
+    .address-field {
+      width: 25rem;
+    }
+  }
+
+  @media (max-width: 975px) {
+    .address-field {
+      width: 19rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .address-field {
+      width: 15rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .address-field {
+      width: 21rem;
+    }
+  }
+
+
 .time-field .ant-picker-input {
     width: 17.9rem;
     font-size: 1rem;
 }
+
+@media (max-width: 1024px) {
+    .time-field .ant-picker-input {
+      width: 23.9rem;
+    }
+  }
+
+  @media (max-width: 975px) {
+    .time-field .ant-picker-input {
+      width: 17.9rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .time-field .ant-picker-input {
+      width: 13.9rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .time-field .ant-picker-input {
+      width: 19.9rem;
+    }
+  }
 
 .time-field .ant-picker-outlined {
     border-radius: 0;

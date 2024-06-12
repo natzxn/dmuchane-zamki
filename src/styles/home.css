@@ -104,8 +104,8 @@
   }
   
   .large {
-    width: 24rem; 
-    height: 24rem; 
+    width: 23rem; 
+    height: 23rem; 
   }
 
   @media (max-width: 1280px) {
@@ -197,28 +197,23 @@
 
   .image-overlay {
     position: absolute;
-    top: 15%;
-    right: 0%;
-    transform: translate(-50%, -50%);
+    
+    
+    transform: translate(-10%, 15%) scaleX(-1);
     width: 25rem;
     height: 22.5rem;
     background-image: url('../assets/castle1.png');
     background-size: cover;
     z-index: 100;
-    transform: scaleX(-1);
+    
   }
 
-  @media (max-width: 1536px) {
-    .image-overlay {
-      right: 17%;
-    }
-  }
 
   @media (min-width: 1024px) and (max-width: 1280px) {
     .image-overlay {
-      width: 16rem;
-      height:17rem;
-      left: 20%;
+      width: 15rem;
+      height:16rem;
+      transform: translate(27%, 18%) scaleX(-1);
     }
   }
 
