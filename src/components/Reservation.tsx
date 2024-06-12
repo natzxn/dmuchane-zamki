@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
 import '../styles/reservation.css';
 import { Formik, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { Input, Select } from "antd";
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
 import { Checkbox } from 'antd';
-import type { CheckboxProps } from 'antd';
 
 import DateRangeSelector from './Form/Calendar';
 import CastleImage from './Form/CastleImage';
 import CastleSelect, { CastleOption } from './Form/CastleSelect';
 import DeliveryOption from './Form/Delivery';
+import { formValidation } from './Form/validation';
 
 const { Option } = Select;
 
 export const Reservation = () => {
   const [selectedCastle, setSelectedCastle] = useState<CastleOption | null>(null);
 
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Imię i Nazwisko są wymagane'),
-    phoneNumber: Yup.string().required('Numer Telefonu jest wymagany'),
-    castle: Yup.string().required('Rodzaj Zamku jest wymagany'),
-    delivery: Yup.string().required('Rodzaj dostawy jest wymagany'),
-    payment: Yup.string().required('Rodzaj płatności jest wymagany'),
-    checkbox: Yup.boolean().oneOf([true], 'Musisz wyrazić zgodę'),
-    city: Yup.string().required('Miejscowość jest wymagana przy dostawie do domu'),
-  });
+  //YUP VALIDATION
+  const validationSchema = formValidation;
 
+  //FORM VALUES
   const onSubmit = (values: any) => {
     console.log('Wartości formularza:', values);
   };
@@ -38,11 +31,6 @@ export const Reservation = () => {
   };
 
 
-  const onChange: CheckboxProps['onChange'] = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
-
-
   return (
     <section className="reservation">
       <div className="container mt-10 max-w-7xl flex">
@@ -50,12 +38,18 @@ export const Reservation = () => {
           <h1 className="heading-reservation mb-5">Rezerwacja</h1>
           <Formik
             initialValues={{
-              name: "",
+              fullName: "",
               phoneNumber: "",
-              castle: "" as CastleOption | "",
-              delivery: "",
+              castleType: "" as CastleOption | "",
+              deliveryType: "",
               payment: "",
               checkbox: false,
+              addressCity: "",
+              addressStreet: "",
+              addressHomeNumber: "",
+              addressZipCode: "",
+              deliveryTime: null,
+              pickUpTime: null
             }}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
@@ -72,15 +66,15 @@ export const Reservation = () => {
                 <div className="form-group mb-4">
                   <Input
                     type="text"
-                    name="name"
+                    name="fullName"
                     className="name"
                     placeholder="Imię i Nazwisko"
-                    value={values.name}
+                    value={values.fullName}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
                   <ErrorMessage
-                    name="name"
+                    name="fullName"
                     component="div"
                     className="error-message"
                   />
@@ -106,11 +100,11 @@ export const Reservation = () => {
                     selectedCastle={selectedCastle}
                     onChange={(value) => {
                       setSelectedCastle(value);
-                      setFieldValue("castle", value);
+                      setFieldValue("castleType", value);
                     }}
                   />
                   <ErrorMessage
-                    name="castle"
+                    name="castleType"
                     component="div"
                     className="error-message"
                   />
@@ -139,11 +133,11 @@ export const Reservation = () => {
                 </div>
                 <div className="form-group mb-4">
                   <DeliveryOption
-                    value={values.delivery || undefined}
-                    onChange={(value) => setFieldValue("delivery", value)}
+                    value={values.deliveryType || undefined}
+                    onChange={(value) => setFieldValue("deliveryType", value)}
                   />
                   <ErrorMessage
-                    name="delivery"
+                    name="deliveryType"
                     component="div"
                     className="error-message"
                   />
@@ -179,7 +173,6 @@ export const Reservation = () => {
                     checked={values.checkbox}
                     onChange={(e) => {
                       setFieldValue("checkbox", e.target.checked);
-                      onChange(e);
                     }}
                   >
                     <p className="text-lg">
