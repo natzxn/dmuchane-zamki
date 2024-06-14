@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, NavLink, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import Prices from './components/Prices';
-import Reservation from './components/Reservation';
+import Reservation from './components/Form/Reservation';
 import Rental from './components/Rental';
 import Footer from './components/Footer';
 import Logo from './assets/logo.svg';
