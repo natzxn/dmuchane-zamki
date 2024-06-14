@@ -39,7 +39,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
                   <Input
                     type="text"
                     placeholder="Miejscowość"
-                    className="address-field mr-8 xs:mb-4"
+                    className="address-field mr-8 sm:mb-0 xs:mb-4"
                     name="addressCity"
                     onChange={(e) => {
                       setFieldValue("addressCity", e.target.value); 
@@ -73,7 +73,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
                   <Input
                     type="text"
                     placeholder="Numer domu/lokalu"
-                    className="address-field mr-8 xs:mb-4"
+                    className="address-field mr-8 sm:mb-0 xs:mb-4"
                     name="addressHomeNumber"
                     onChange={(e) => {
                       setFieldValue('addressHomeNumber', e.target.value); 
