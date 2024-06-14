@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import '../styles/reservation.css';
+import '../../styles/reservation.css';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { Input, Select } from "antd";
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
 import { Checkbox } from 'antd';
 
-import DateRangeSelector from './Form/Calendar';
-import CastleImage from './Form/CastleImage';
-import CastleSelect, { CastleOption } from './Form/CastleSelect';
-import DeliveryOption from './Form/Delivery';
-import { formValidation } from './Form/validation';
+import DateRangeSelector from './Calendar';
+import CastleImage from './CastleImage';
+import CastleSelect, { CastleOption } from './CastleSelect';
+import DeliveryOption from './Delivery';
+import { formValidation } from './validation';
 
 const { Option } = Select;
 
@@ -23,11 +23,6 @@ export const Reservation = () => {
   //FORM VALUES
   const onSubmit = (values: any) => {
     console.log('Wartości formularza:', values);
-  };
-
-  const updateDate = (ranges: { startDate: Date | null, endDate: Date | null }, setFieldValue: (field: string, value: any) => void) => {
-    setFieldValue('startDate', ranges.startDate);
-    setFieldValue('endDate', ranges.endDate);
   };
 
 
@@ -115,9 +110,10 @@ export const Reservation = () => {
                   </h4>
                   <div className="date-selector flex">
                     <DateRangeSelector
-                      onDateChange={(ranges) =>
-                        updateDate(ranges, setFieldValue)
-                      }
+                      onDateChange={(ranges) => {
+                        setFieldValue('startDate', ranges.startDate);
+                        setFieldValue('endDate', ranges.endDate);
+                      }}
                       disabled={!selectedCastle}
                     />
                     <h5 className="sm:ml-8 max-w-44 sm:my-20 text-sm xs:mb-5 xs:mt-1 xs:ml-2">
