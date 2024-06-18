@@ -1,30 +1,53 @@
 import React, { useState } from 'react';
 import '../../styles/reservation.css';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { Input, Select } from "antd";
+import { Input, Select, Checkbox, message } from 'antd';
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
-import { Checkbox } from 'antd';
 
 import DateRangeSelector from './Calendar';
 import CastleImage from './CastleImage';
 import CastleSelect, { CastleOption } from './CastleSelect';
 import DeliveryOption from './Delivery';
 import { formValidation } from './validation';
+import { orders, checkAvailability, OrderData } from './castleAvailability'; 
 
 const { Option } = Select;
 
 export const Reservation = () => {
   const [selectedCastle, setSelectedCastle] = useState<CastleOption | null>(null);
 
-  //YUP VALIDATION
   const validationSchema = formValidation;
 
-  //FORM VALUES
-  const onSubmit = (values: any) => {
-    console.log('Wartości formularza:', values);
-  };
+  const onSubmit = (values: any, { setSubmitting, resetForm }: any) => {
+    const startDate = values.startDate;
+    const endDate = values.endDate;
 
+    if (selectedCastle && startDate && endDate) {
+      const isAvailable = checkAvailability(selectedCastle, startDate, endDate, orders);
+
+      if (!isAvailable) {
+        message.error('Wybrany zakres dat jest niedostępny. Proszę wybrać inny termin.');
+        setSubmitting(false); 
+        return; 
+      }
+
+      console.log('Wartości formularza:', values);
+      
+      const newOrder: OrderData = {
+        id: `${Math.random()}`, 
+        itemType: selectedCastle,
+        rentStartDate: { seconds: startDate.getTime() / 1000 },
+        rentEndDate: { seconds: endDate.getTime() / 1000 }
+      };
+
+      orders.push(newOrder);
+      message.success('Formularz został pomyślnie wysłany.');
+
+      resetForm();
+      setSelectedCastle(null);
+    }
+  };
 
   return (
     <section className="reservation">
@@ -44,7 +67,9 @@ export const Reservation = () => {
               addressHomeNumber: "",
               addressZipCode: "",
               deliveryTime: null,
-              pickUpTime: null
+              pickUpTime: null,
+              startDate: null,
+              endDate: null
             }}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
@@ -56,6 +81,7 @@ export const Reservation = () => {
               touched,
               errors,
               setFieldValue,
+              isSubmitting,
             }) => (
               <Form>
                 <div className="form-group mb-4">
@@ -115,6 +141,8 @@ export const Reservation = () => {
                         setFieldValue('endDate', ranges.endDate);
                       }}
                       disabled={!selectedCastle}
+                      orders={orders} 
+                      selectedCastle={selectedCastle} 
                     />
                     <h5 className="sm:ml-8 max-w-44 sm:my-20 text-sm xs:mb-5 xs:mt-1 xs:ml-2">
                       Dni zaznaczone na szaro (te których nie da sie wybrać)
@@ -158,7 +186,7 @@ export const Reservation = () => {
                     className="error-message"
                   />
                 </div>
-                <div className="checkbox-wrapper xl:whitespace-normal max-w-lg mt-8 mb-14">
+                <div className="checkbox-wrapper xl:whitespace-normal max-w-lg mt-14 mb-14">
                   <Checkbox
                     name="checkbox"
                     className={`ant-checkbox ${
@@ -178,7 +206,7 @@ export const Reservation = () => {
                     </p>
                   </Checkbox>
                 </div>
-                <button type="submit" className="btn-submit btn-primary mb-14">
+                <button type="submit" className="btn-submit btn-primary mb-14" disabled={isSubmitting}>
                   REZERWUJ
                 </button>
               </Form>
@@ -186,7 +214,7 @@ export const Reservation = () => {
           </Formik>
         </div>
         <div className="bubbles-container max-w-lg mt-14 2xl:ml-12 2xxl:ml-32">
-          <figure className="bubbles-images mb-28">
+          <figure className="bubbles-images mb-24">
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
             <CastleImage selectedCastle={selectedCastle} />

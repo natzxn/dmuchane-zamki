@@ -282,7 +282,7 @@
 
 @media (max-width: 1440px) {
   .chosen-castle {
-  transform: translate(55%, 45%) scaleX(-1);
+  transform: translate(45%, 45%) scaleX(-1);
   }
 }
 
@@ -316,4 +316,8 @@
 .date-selector {
   flex-direction: column-reverse;
 }
+}
+
+.ant-message {
+  top: 300px; /* Przesunięcie o 50% wysokości ekranu */
 }
