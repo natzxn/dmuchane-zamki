@@ -33,17 +33,21 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({ onDateChange, dis
   }, [orders, selectedCastle]);
 
   const handleChange = (item: RangeKeyDict) => {
-    setState([item.selection]);
+    const newState = [item.selection];
     const startDate = item.selection.startDate || new Date();
     const endDate = item.selection.endDate || startDate;
 
-    if (!checkAvailability(selectedCastle, startDate, endDate, orders)) {
+    const isAvailable = checkAvailability(selectedCastle, startDate, endDate, orders);
+
+    if (!isAvailable) {
       message.error('Wybrany zakres dat jest niedostępny. Proszę wybrać inny termin.');
     }
 
+    setState(newState);
+
     onDateChange({
-      startDate: startDate,
-      endDate: endDate || null
+      startDate: isAvailable ? startDate : null,
+      endDate: isAvailable ? endDate : null
     });
   };
 
