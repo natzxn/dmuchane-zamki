@@ -60,6 +60,8 @@
     background-color: #ffea72;
 }
 
+/* price-cards @media */
+
 @media (max-width: 1210px) {
     .price-cards {
         flex-wrap: wrap;
