@@ -14,7 +14,7 @@
     text-shadow: 0px 0px 4px #00000033;
 }
 
-.conditions li span {
+.conditions .number {
     font-size: 1.625rem;
     font-weight: 600;
 }
