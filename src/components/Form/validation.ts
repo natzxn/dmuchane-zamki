@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 
+
 export const formValidation = Yup.object({
     fullName: Yup.string()
     .matches(/^[A-Za-z]+( [A-Za-z]+)?$/, "Imię i Nazwisko może zawierać tylko litery i jedną spację")

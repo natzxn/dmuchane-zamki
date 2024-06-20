@@ -12,13 +12,16 @@ import DeliveryOption from './Delivery';
 import { formValidation } from './validation';
 import { orders, checkAvailability, OrderData } from './castleAvailability'; 
 
+//Destructuring the Select object from antd
 const { Option } = Select;
 
 export const Reservation = () => {
   const [selectedCastle, setSelectedCastle] = useState<CastleOption | null>(null);
 
+  //Form validation (yup)
   const validationSchema = formValidation;
 
+  //Submission control
   const onSubmit = (values: any, { setSubmitting, resetForm }: any) => {
     const startDate = values.startDate;
     const endDate = values.endDate;
@@ -32,8 +35,6 @@ export const Reservation = () => {
         return; 
       }
 
-      console.log('Wartości formularza:', values);
-      
       const newOrder: OrderData = {
         id: `${Math.random()}`, 
         itemType: selectedCastle,
@@ -44,8 +45,11 @@ export const Reservation = () => {
       orders.push(newOrder);
       message.success('Formularz został pomyślnie wysłany.');
 
-      resetForm();
-      setSelectedCastle(null);
+      resetForm(); //Resets form
+      setSelectedCastle(null); //Resets chosen castle and calendar
+
+      //OUTPUT - values from form
+      console.log('Wartości formularza:', values);
     }
   };
 
@@ -213,10 +217,12 @@ export const Reservation = () => {
             )}
           </Formik>
         </div>
+        {/* Bubbles section */}
         <div className="bubbles-container max-w-lg mt-14 2xl:ml-12 2xxl:ml-32">
           <figure className="bubbles-images mb-24">
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
+            {/* Image of the selected castle */}
             <CastleImage selectedCastle={selectedCastle} />
           </figure>
           <figure className="bubbles-images">
