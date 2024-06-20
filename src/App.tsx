@@ -24,6 +24,7 @@ const App: React.FC = () => {
               <div className="logo">
                 <img src={Logo} alt="Logo" className="h-13" />
               </div>
+              {/* Navigation for larger resolutions */}
               <nav className="navigation hidden lg:flex"> 
                 <ul className="flex">
                   <li><NavLink to="/" className={({ isActive }) => `path mx-5 ${isActive ? 'active' : ''}`} end>O nas</NavLink></li>
@@ -39,6 +40,7 @@ const App: React.FC = () => {
               </button>
             </div>
           </nav>
+          {/* Mobile navigation */}
           <nav className={`lg:flex lg:items-center ${isMobileMenuOpen ? 'show' : 'hide'} nav-container`}> 
             <ul className="flex flex-col items-end mx-10">
               <li><NavLink to="/" className="path my-2" onClick={toggleMobileMenu} end>O nas</NavLink></li>
@@ -47,6 +49,7 @@ const App: React.FC = () => {
               <li><NavLink to="/rental" className="path my-2" onClick={toggleMobileMenu}>Warunki wynajmu</NavLink></li>
             </ul>
           </nav>
+          {/* Website content */}
           <article className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -62,6 +65,7 @@ const App: React.FC = () => {
   );
 }
 
+// Conditional footer display
 const FooterWrapper: React.FC = () => {
   const location = useLocation();
   return location.pathname !== '/reservation' ? <Footer /> : null;
