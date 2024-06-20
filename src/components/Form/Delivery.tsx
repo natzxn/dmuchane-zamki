@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Select, Input, TimePicker } from 'antd';
-import dayjs from 'dayjs';
 import { ErrorMessage, useFormikContext } from 'formik';
 import '../../styles/delivery.css'
 
