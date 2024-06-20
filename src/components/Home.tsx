@@ -9,8 +9,8 @@ const Home: React.FC = () => {
     <>
     <section className='about'>
       <div className="container flex mt-12 mx-auto max-w-7xl text-wrap">
-        <article className='md:ml-10 mr-20 3xl:mr-60 2xl:mr-20 xl:mr-10 lg:mr-10 xs:ml-6 '>
-          <h1 className='heading py-5 mb-5'>Urządź Dzieciom Niezapomniany Dzień!</h1>
+        <article className='md:ml-10 mr-20 3xl:mr-60 xl:mr-10 lg:mr-10 xs:ml-6 '>
+          <h1 className='heading-home py-5 mb-5'>Urządź Dzieciom Niezapomniany Dzień!</h1>
           <p className='text1'>
             Lorem ipsum dolor sit amet consectetur. Dictumst et vitae adipiscing
             nulla tortor nibh non donec. Orci quis morbi convallis egestas elit
@@ -38,13 +38,13 @@ const Home: React.FC = () => {
           <div className='bubble bubble2 small2'></div>
         <div className='image-overlay2'></div>
         </figure>
-        <article className='md:ml-10  mr-24 xl:mr-15 lg:mr-5 lg:ml-10 xs:mx-3'>
-          <h1 className='heading py-5 mb-5'>Jak działamy</h1>
+        <article className='md:ml-10  mr-24 3xl:ml-28 xl:mr-15 lg:mr-5 lg:ml-10 xs:mx-3'>
+          <h1 className='heading-home py-5 mb-5'>Jak działamy</h1>
           <ul className='text2'>
-            <li className='my-3'><span className='mr-4'>1.</span>Zarezerwuj dmuchańca, którego chcesz wypożyczyć. Możesz to zrobić telefonicznie lub przez formularz.</li>
-            <li className='my-3'><span className='mr-4'>1.</span>Lorem ipsum dolor sit amet consectetur. Sed leo hendrerit justo in. Facilisi in mi nunc eu morbi feugiat.</li>
-            <li className='my-3'><span className='mr-4'>1.</span>Lorem ipsum dolor sit amet consectetur. Gravida non.</li>
-            <li className='mt-3 mb-8'><span className='mr-4'>1.</span>Lorem ipsum dolor sit amet consectetur. Elit sagittis scelerisque odio ornare purus. In pellentesque risus.</li>
+            <li className='my-3'><span className='number mr-4'>1.</span>Zarezerwuj dmuchańca, którego chcesz wypożyczyć. Możesz to zrobić telefonicznie lub przez formularz.</li>
+            <li className='my-3'><span className='number mr-4'>1.</span>Lorem ipsum dolor sit amet consectetur. Sed leo hendrerit justo in. Facilisi in mi nunc eu morbi feugiat.</li>
+            <li className='my-3'><span className='number mr-4'>1.</span>Lorem ipsum dolor sit amet consectetur. Gravida non.</li>
+            <li className='mt-3 mb-8'><span className='number mr-4'>1.</span>Lorem ipsum dolor sit amet consectetur. Elit sagittis scelerisque odio ornare purus. In pellentesque risus.</li>
           </ul>
           <p className='text-black text-lg font-semibold'>Chcesz wiedzieć więcej?</p>
           <button className='check-rental py-5 px-7 my-4' onClick={() => navigate('/rental')}>Sprawdź warunki wynajmu</button>

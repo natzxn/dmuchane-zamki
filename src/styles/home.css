@@ -1,5 +1,7 @@
 
-.heading {
+/* heading */
+
+.heading-home {
     font-family: "Playpen Sans", cursive;
     font-size: 3rem;
     font-weight: 700;
@@ -8,10 +10,12 @@
 }
 
 @media (max-width: 640px) {
-  .heading {
+  .heading-home {
    font-size: 2.3rem;
   }
 }
+
+/* Text first section */
 
 .text1 {
     width: 35rem;
@@ -60,8 +64,6 @@
   }
 }
 
-
-
 .check-castle {
   background-color: #28D2FF;
   border-radius: 999px;
@@ -69,6 +71,8 @@
   font-family: 'Lato', sans-serif;
   font-weight: 700;
 }
+
+/* Bubbles styles */
 
 .bubbles-box {
     position: relative;
@@ -152,7 +156,6 @@
       right: 29%;
     }
   }
-
   
   .bubble:nth-child(3) {
     top: 44%;
@@ -172,7 +175,6 @@
       left: 30%;
     }
   }
-
 
   .bubble:nth-child(4) {
     top: 5%;
@@ -194,18 +196,16 @@
     }
   }
 
+  /* Castle  image #1*/
 
   .image-overlay {
     position: absolute;
-    
-    
     transform: translate(-10%, 15%) scaleX(-1);
     width: 25rem;
     height: 22.5rem;
     background-image: url('../assets/castle1.png');
     background-size: cover;
-    z-index: 100;
-    
+    z-index: 100; 
   }
 
 
@@ -222,6 +222,8 @@
     display: none;
     }
   }
+
+/* Bubbles animation */
 
   @keyframes bubbleScale1 {
     0% {
@@ -271,7 +273,7 @@
   }
 }
 
-/* SECOND SECTION */
+/* Text second section */
 
 .text2 {
   font-family: 'Lato', sans-serif;
@@ -327,7 +329,7 @@
   }
 }
 
-.text2 li span {
+.text2 .number {
   display: inline-block;
   text-align: right; 
   font-weight: bold; 
@@ -341,6 +343,8 @@
   font-family: 'Lato', sans-serif;
   font-weight: 700;
 }
+
+/* Bubbles second section */
 
 .bubbles-box2 {
   position: relative;
@@ -379,7 +383,6 @@
   }
 }
 
-
 .large3 {
   width: 17rem; 
   height: 18rem; 
@@ -411,7 +414,6 @@
   }
 }
 
-
 .bubble2:nth-child(2) {
   top: 15%;
   right: 20%;
@@ -430,7 +432,6 @@
     left: 14%; 
   }
 }
-
 
 .bubble2:nth-child(3) {
   top: 89%;
@@ -452,7 +453,6 @@
   }
 }
 
-
 .bubble2:nth-child(4) {
   top: 70%;
   left: 63%;
@@ -472,29 +472,27 @@
   }
 }
 
+/* Castle image #2 */
 
 .image-overlay2 {
   position: absolute;
-  top: 30%;
-  right: 30%;
-  transform: translate(-50%, -50%);
+  transform: translate(2%, 29%) scaleX(-1);
   width: 30rem;
   height: 22.5rem;
   background-image: url('../assets/castle2.png');
   background-size: cover;
   z-index: 100;
-  transform: scaleX(-1);
 }
 
 @media (min-width: 1920px) {
   .image-overlay2 {
-    right: 9%;
+      right: -5%;
   }
 }
 
 @media (min-width: 1536px) and (max-width: 1919px) {
   .image-overlay2 {
-    right: 9%; /* Pozycja dla szerokości ekranu od 1536px do 1919px */
+    right: 9%; 
   }
 }
 
@@ -506,9 +504,16 @@
 
 @media (max-width: 1280px) {
   .image-overlay2 {
-    width: 24rem;
-    height: 18rem;
-    left: 2%;
+    width: 23rem;
+    height: 17rem;
+  }
+}
+
+@media (max-width: 1110px) {
+  .image-overlay2 {
+    width: 20rem;
+    height: 15rem;
+    top: 10%;
   }
 }
 
@@ -517,3 +522,4 @@
   display: none;
   }
 }
+
