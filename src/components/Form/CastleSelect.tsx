@@ -1,9 +1,8 @@
 import React from 'react';
 import { Select } from 'antd';
+import { CastleOption } from './castleAvailability';
 
 const { Option } = Select;
-
- export type CastleOption = 'first-option' | 'second-option' | 'third-option';
 
 interface CastleSelectProps {
   selectedCastle: CastleOption | null;

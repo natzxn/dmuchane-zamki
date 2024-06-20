@@ -7,7 +7,8 @@ import 'react-date-range/dist/theme/default.css';
 
 import DateRangeSelector from './Calendar';
 import CastleImage from './CastleImage';
-import CastleSelect, { CastleOption } from './CastleSelect';
+import CastleSelect from './CastleSelect';
+import { CastleOption } from './castleAvailability';
 import DeliveryOption from './Delivery';
 import { formValidation } from './validation';
 import { orders, checkAvailability, OrderData } from './castleAvailability'; 

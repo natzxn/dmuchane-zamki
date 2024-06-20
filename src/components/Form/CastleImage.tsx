@@ -1,11 +1,10 @@
 import React from 'react';
 import '../../styles/reservation.css'
+import { CastleOption } from './castleAvailability';
 
 import FirstCastle from '../../assets/castle3.png';
 import SecondCastle from '../../assets/castle2.png';
 import ThirdCastle from '../../assets/castle4.png';
-
-type CastleOption = 'first-option' | 'second-option' | 'third-option';
 
 const CastleImage = ({ selectedCastle }: { selectedCastle: CastleOption | null }) => {
     
