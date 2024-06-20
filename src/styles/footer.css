@@ -8,6 +8,7 @@
     }
   }
 
+/* Footer headings */
 
 .instructions {
     font-family: "Playpen Sans", cursive;
@@ -23,6 +24,8 @@
     font-size: 1.7rem;
   }
 }
+
+/* Map container */
 
 .map-container {
     width: 485px;
@@ -58,6 +61,8 @@
     width: 80vw;
     }
   }
+
+  /* Contact info */
 
   .contact {
     font-family: 'Lato', sans-serif;
