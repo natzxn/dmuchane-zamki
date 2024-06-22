@@ -14,6 +14,10 @@ interface DateRangeSelectorProps {
 }
 
 const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({ onDateChange, disabled, orders, selectedCastle }) => {
+    //Disable today's date
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+  
   const [state, setState] = useState<Range[]>([
     {
       startDate: new Date(),
@@ -32,33 +36,30 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({ onDateChange, dis
     ]);
   }, [orders, selectedCastle]);
 
+  //Handles changes in a selected date range
   const handleChange = (item: RangeKeyDict) => {
-    const newState = [item.selection];
+    const newRange = [item.selection];
     const startDate = item.selection.startDate || new Date();
     const endDate = item.selection.endDate || startDate;
 
+    //Checks the availability of the selected date range
     const isAvailable = checkAvailability(selectedCastle, startDate, endDate, orders);
 
     if (!isAvailable) {
       message.error('Wybrany zakres dat jest niedostępny. Proszę wybrać inny termin.');
-    }
+    } //if not available give a message
 
-    setState(newState);
-
+    setState(newRange); //after changing range selection
     onDateChange({
       startDate: isAvailable ? startDate : null,
       endDate: isAvailable ? endDate : null
     });
   };
 
-  const disabledDay = (date: Date): boolean => {
-    if (selectedCastle && !checkAvailability(selectedCastle, date, date, orders)) return true;
-
-    return false;
-  };
-
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  //function for checking if date should be disabled or not - basing on orders for selected castle
+const disabledDay = (date: Date): boolean => {
+    return selectedCastle && !checkAvailability(selectedCastle, date, date, orders) ? true : false;
+};
 
   return (
     <div className={`calendar-container ${disabled ? 'calendar-disabled' : ''}`}>

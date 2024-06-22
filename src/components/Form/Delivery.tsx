@@ -13,7 +13,8 @@ interface DeliveryOptionProps {
 
 const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
     const [showAddressFields, setShowAddressFields] = useState(false);
-    const { setFieldValue } = useFormikContext();
+    //Direct value setting in nested component 
+    const { setFieldValue } = useFormikContext(); 
 
     const handleDeliveryChange = (value: string) => {
         onChange(value);
@@ -31,6 +32,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
             <Option value="personal-collect">Odbiór osobisty</Option>
             <Option value="home-delivery">Dostawa na wybrany adres</Option>
           </Select>
+          {/* Conditional display of delivery fields to the selected address */}
           {showAddressFields && (
             <>
               <div className="adress-inputs flex mt-4 mb-4 sm:flex-row xs:flex-col">
@@ -102,6 +104,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({ value, onChange }) => {
                   />
                 </div>
               </div>
+              {/* Time Pickers for delivery*/}
               <div className="time-pickers flex mb-4 sm:flex-row xs:flex-col">
                 <div className="time-field mr-8 xs:mb-4">
                   <h5 className="mb-1">Preferowana godzina dostawy:</h5>

@@ -1,13 +1,15 @@
+//Types for possible options of castles available for rent
+export type CastleOption = 'first-option' | 'second-option' | 'third-option';
+
+//Defines the structure of an abject representing an order for renting a castle
 export type OrderData = {  
     id: string;  
-    itemType: "first-option" | "second-option" | "third-option"; 
+    itemType: CastleOption;
     rentStartDate: {seconds: number;},
     rentEndDate: {seconds: number;}
   };
   
-  export type CastleOption = 'first-option' | 'second-option' | 'third-option';
-  
-
+  //Function getDay allows to geberate dates dynamically relative to the current date - to set static dates
   export const getDay = (daysForward: number) => {
     const date = new Date();
     date.setMilliseconds(0);
@@ -18,7 +20,7 @@ export type OrderData = {
     return date.getTime() / 1000;
   };
   
-
+  //Static data hardcoded on the frontend
   export const orders: OrderData[] = [
     {
       itemType: 'second-option',
@@ -64,12 +66,14 @@ export type OrderData = {
     }
   ];
   
+  //Array that stores an example number of castles
   const castleAvailability = {
     'first-option': 2,
     'second-option': 3,
     'third-option': 1,
   };
   
+  //Checks the availability of castles based on the selected castle, start date, end date and order list
   export const checkAvailability = (
     selectedCastle: CastleOption | null,
     startDate: Date,
@@ -78,21 +82,23 @@ export type OrderData = {
   ): boolean => {
     if (!selectedCastle) return false;
 
-    const startTime = startDate.getTime() / 1000;
-    const endTime = endDate.getTime() / 1000;
+    const startTime = startDate.getTime() / 1000; //timestamp in seconds
+    const endTime = endDate.getTime() / 1000; //timestamp in seconds
   
     const countUnavailable = orders.filter(order => {
       if (order.itemType !== selectedCastle) return false;
   
-      const orderStart = order.rentStartDate.seconds;
-      const orderEnd = order.rentEndDate.seconds;
+      const orderStart = order.rentStartDate.seconds; //Gets the rental start time of the order in seconds
+      const orderEnd = order.rentEndDate.seconds; //Gets the order rental end time in seconds
   
+      //Checks whethher the limiting date range (startTime to endTime) conflicts with the order date range (orderStart to orderEnd) in three conditions:
       return (
-        (startTime >= orderStart && startTime <= orderEnd) ||
+        (startTime >= orderStart && startTime <= orderEnd) || 
         (endTime >= orderStart && endTime <= orderEnd) ||
         (startTime <= orderStart && endTime >= orderEnd)
       );
-    }).length;
+    }).length; //lenght used for knowing how many orders conflicts with date range limit
   
+    //Returns true if the number of conflicting orders (countUnavailable) is less than the maximum availability for the selected castle
     return countUnavailable < castleAvailability[selectedCastle];
   };
