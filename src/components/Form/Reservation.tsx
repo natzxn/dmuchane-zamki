@@ -43,6 +43,17 @@ export const Reservation = () => {
         rentEndDate: { seconds: endDate.getTime() / 1000 }
       };
 
+      /*
+      if (values.deliveryType === 'personal-collect') {
+        delete values.addressCity;
+        delete values.addressStreet;
+        delete values.addressHomeNumber;
+        delete values.addressZipCode;
+        delete values.deliveryTime;
+        delete values.pickUpTime;
+      }
+        */
+
       orders.push(newOrder);
       message.success('Formularz został pomyślnie wysłany.');
 
@@ -204,7 +215,7 @@ export const Reservation = () => {
                       setFieldValue("checkbox", e.target.checked);
                     }}
                   >
-                    <p className="text-lg">
+                    <p className="text-sm">
                       Wyrażam zgodę na przetwarzanie moich danych osobowych w
                       celu i zakresie koniecznym do udzielenie odpowiedzi na
                       przesłane zapytanie.
@@ -224,7 +235,7 @@ export const Reservation = () => {
             <div className="cup cup1 smaller"></div>
             <div className="cup cup1 larger"></div>
             {/* Image of the selected castle */}
-            <CastleImage selectedCastle={selectedCastle} />
+            <CastleImage selectedCastle={selectedCastle} /> 
           </figure>
           <figure className="bubbles-images">
             <div className="cup cup2 smaller2"></div>

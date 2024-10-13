@@ -11,13 +11,13 @@ export type OrderData = {
   
   //Function getDay allows to geberate dates dynamically relative to the current date - to set static dates
   export const getDay = (daysForward: number) => {
-    const date = new Date();
-    date.setMilliseconds(0);
+    const date = new Date(); //date now
+    date.setMilliseconds(0); //zero everything for gettig exact midnight time, time point
     date.setSeconds(0);
     date.setMinutes(0);
     date.setHours(0);
-    date.setDate(date.getDate() + daysForward);
-    return date.getTime() / 1000;
+    date.setDate(date.getDate() + daysForward); //daysforward for adding days to current date
+    return date.getTime() / 1000; //timestamp
   };
   
   //Static data hardcoded on the frontend

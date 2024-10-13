@@ -9,16 +9,17 @@ import Footer from './components/Footer';
 import Logo from './assets/logo.svg';
 
 const App: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  }; 
 
   return (
     <Router>
-      <main className="border min-h-screen flex flex-col">
-        <div className='app flex flex-col flex-grow rounded-3xl'>
+      <main className="bg min-h-screen flex flex-col my-10">
+        <div className='app flex flex-col flex-grow rounded-3xl'> {/* rounded to border radius 1.5rem w tailwindcss*/}
           <nav className='mx-7 mt-3 xs:mx-4'>
             <div className="flex justify-between items-center px-4 py-2">
               <div className="logo">
@@ -51,8 +52,8 @@ const App: React.FC = () => {
           </nav>
           {/* Website content */}
           <article className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
+            <Routes> 
+              <Route path="/" element={<Home />} /> 
               <Route path="/prices" element={<Prices />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/rental" element={<Rental />} />
@@ -67,8 +68,8 @@ const App: React.FC = () => {
 
 // Conditional footer display
 const FooterWrapper: React.FC = () => {
-  const location = useLocation();
-  return location.pathname !== '/reservation' ? <Footer /> : null;
+  const location = useLocation(); 
+  return location.pathname !== '/reservation' ? <Footer /> : null; 
 };
 
 export default App;
