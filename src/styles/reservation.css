@@ -101,6 +101,12 @@
     height: 21rem; 
   }
 
+  @media (min-width: 1530px) {
+    .bubbles-images {
+      width: 20rem;
+    }
+  }
+
   @media (max-width: 1440px) {
     .bubbles-images {
       width: 27rem;
@@ -188,9 +194,10 @@
   
   .cup1:nth-child(1) {
     top: 59%;
-    right: 10%;
+    right: 23%;
     z-index: 100;
   }
+
 
   @media (max-width: 1200px) {
     .cup1:nth-child(1) {
@@ -205,6 +212,7 @@
     right: 20%;
     z-index: 10;
   }
+
 
   @media (max-width: 1200px) {
     .cup1:nth-child(2) {
@@ -231,6 +239,7 @@
     right: 20%;
     z-index: 10;
   }
+
 
   @media (max-width: 1200px) {
     .cup2:nth-child(2) {
