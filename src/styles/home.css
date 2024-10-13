@@ -76,7 +76,7 @@
 
 .bubbles-box {
     position: relative;
-    width: 34rem; 
+    width: 48rem; 
     height: 21rem; 
   }
 
@@ -85,7 +85,7 @@
     background-size: cover;
     border-radius: 50%;
     background: linear-gradient(153.92deg, #FFFFFF -2.31%, #BCEAF6 83.57%);
-    animation: bubbleMovement 3s infinite;
+    
   }
 
   @media (max-width: 1024px) {
@@ -97,7 +97,6 @@
   .small {
     width: 13rem;
     height: 13rem; 
-    animation: smallBubbleMovement 3s infinite;
   }
 
   @media (max-width: 1280px) {
@@ -125,6 +124,12 @@
     animation: bubbleScale1 4s infinite;
   }
 
+  @media (min-width: 1920px) {
+    .bubble:nth-child(1) {
+      right: 80%;
+    }
+  }
+
   @media (max-width: 1536px) {
     .bubble:nth-child(1) {
       right: 70%;
@@ -143,6 +148,12 @@
     right: 20%;
     z-index: 10;
     animation: bubbleScale2 4s infinite;
+  }
+
+  @media (min-width: 1920px) {
+    .bubble:nth-child(2) {
+      right: 32%;
+    }
   }
 
   @media (max-width: 1536px) {
@@ -164,6 +175,12 @@
     animation: bubbleScale3 5s infinite;
   }
 
+  @media (min-width: 1920px) {
+    .bubble:nth-child(3) {
+      left: -14%;
+    }
+  }
+
   @media (max-width: 1536px) {
     .bubble:nth-child(3) {
       left: 11%;
@@ -182,6 +199,11 @@
     animation: bubbleScale4 5s infinite;
   }
 
+  @media (min-width: 1920px) {
+    .bubble:nth-child(4) {
+      left: 36%;
+    }
+  }
 
   @media (max-width: 1536px) {
     .bubble:nth-child(4) {
@@ -200,12 +222,18 @@
 
   .image-overlay {
     position: absolute;
-    transform: translate(-10%, 15%) scaleX(-1);
+    transform: translate(4%, 15%) scaleX(-1);
     width: 25rem;
     height: 22.5rem;
     background-image: url('../assets/castle1.png');
-    background-size: cover;
+    background-size: cover; /* pokrywa cały element tła */
     z-index: 100; 
+  }
+
+  @media (min-width: 1920px) {
+    .image-overlay {
+      transform: translate(-30%, 18%) scaleX(-1);
+    }
   }
 
 
@@ -361,7 +389,6 @@
 .small2 {
   width: 13rem;
   height: 13rem; 
-  animation: smallBubbleMovement 3s infinite;
 }
 
 @media (max-width: 1280px) {
@@ -372,8 +399,8 @@
 }
 
 .large2 {
-  width: 24rem; 
-  height: 24rem; 
+  width: 22rem; 
+  height: 22rem; 
 }
 
 @media (max-width: 1280px) {
@@ -384,8 +411,8 @@
 }
 
 .large3 {
-  width: 17rem; 
-  height: 18rem; 
+  width: 16rem; 
+  height: 17rem; 
 }
 
 @media (max-width: 1280px) {
@@ -400,6 +427,13 @@
   right: 65%;
   animation: bubbleScale1 4s infinite;
 }
+
+@media (min-width: 1920px){
+  .bubble2:nth-child(1) {
+    left: -26%; 
+  }
+}
+
 
 @media (min-width: 1280px) and (max-width: 1535px) {
   .bubble2:nth-child(1) {
@@ -419,6 +453,12 @@
   right: 20%;
   z-index: 10;
   animation: bubbleScale2 4s infinite;
+}
+
+@media (min-width: 1920px){
+  .bubble2:nth-child(2) {
+    right: -26%; 
+  }
 }
 
 @media (min-width: 1280px) and (max-width: 1535px) {
@@ -476,9 +516,9 @@
 
 .image-overlay2 {
   position: absolute;
-  transform: translate(2%, 29%) scaleX(-1);
-  width: 30rem;
-  height: 22.5rem;
+  transform: translate(2%, 38%) scaleX(-1);
+  width: 26rem;
+  height: 19rem;
   background-image: url('../assets/castle2.png');
   background-size: cover;
   z-index: 100;
@@ -486,7 +526,7 @@
 
 @media (min-width: 1920px) {
   .image-overlay2 {
-      right: -5%;
+      right: -40%;
   }
 }
 
