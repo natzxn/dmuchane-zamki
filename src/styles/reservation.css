@@ -299,6 +299,12 @@
   z-index: 101;
 }
 
+@media (min-width: 1530px) {
+  .chosen-castle {
+  transform: translate(5%, 40%) scaleX(-1);
+  }
+}
+
 @media (max-width: 1440px) {
   .chosen-castle {
   transform: translate(45%, 45%) scaleX(-1);
