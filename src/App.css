@@ -4,10 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playpen+Sans:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+body {
+  background-color: #0183C7;
+  border: none;
+}
+
 .app {
   border-radius: 1rem; 
   background-color: #f6fdff;
   font-family: 'Lato', sans-serif;
+  max-width: 1200px;
 }
 
 /* Navigation */
@@ -21,7 +27,7 @@
 }
 
 .path:hover {
-  color: #0183C7;
+  color: #0183C7; 
 }
 
 .active {
@@ -56,28 +62,11 @@
 }
 
 /* Border styles */
-
-.border {
-  border: solid 4vw #0183C7;
-  background-color: #0183C7;
-  border-left-width: 8.4vw;
-  border-right-width: 8.4vw;
+@media(min-width: 1200px) {
+  .bg {
+    align-items: center;
+  }  
 }
 
-@media (max-width: 1536px) {
-  .border {
-    border-width: 3vw;
-    border-left-width: 6vw;
-    border-right-width: 6vw;
-  }
-}
-
-@media (max-width: 1280px) {
-  .border {
-    border-width: 2vw;
-    border-left-width: 4vw;
-    border-right-width: 4vw;
-  }
-}
 
 
